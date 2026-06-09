@@ -855,7 +855,6 @@ tr.row-featured td strong.desktop-only {
     line-height: 1.3 !important;
     padding: 2px 4px !important;
     white-space: nowrap !important; /* Keep technical specs in a clean single line for horizontal scrolling */
-    display: inline-block !important;
   }
 
   .badge-index {

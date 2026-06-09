@@ -284,8 +284,7 @@ function renderAllTables() {
           </td>
           <td class="price-value">${item.price}</td>
           <td>
-            <span class="params-text desktop-only">${item.params}</span>
-            <span class="params-text mobile-only">${formatParamsForMobile(item.params)}</span>
+            <span class="params-text">${item.params}</span>
           </td>
         `;
       } else if (key === 'monofocal_lab') {
