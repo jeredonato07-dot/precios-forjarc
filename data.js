@@ -2,7 +2,7 @@ const PRICING_DATA = {
   stock: {
     title: "Lentes de Stock Rango Extendido",
     description: "Lentes monofocales listos para entrega inmediata o en rango extendido de stock.",
-    headers: ["Índice", "Descripción", "Rango/Tipo", "Parámetros de Graduación", "Precio"],
+    headers: ["Descripción", "Rango/Tipo", "Precio", "Parámetros de Graduación"],
     items: [
       {
         index: "1.56",
@@ -77,7 +77,7 @@ const PRICING_DATA = {
   monofocal_lab: {
     title: "Monofocal Laboratorio",
     description: "Lentes monofocales fabricadas a medida en laboratorio. Diferencia de precio según método de tallado.",
-    headers: ["Descripción", "Rango Esférico", "Rango Cilíndrico", "Tallado Tradicional CNC", "Tallado Digital"],
+    headers: ["Descripción", "Tallado Tradicional CNC", "Tallado Digital", "Rango Esférico", "Rango Cilíndrico"],
     items: [
       {
         name: "1.56 Orgánico Blue Light",
@@ -141,7 +141,7 @@ const PRICING_DATA = {
   bifocal: {
     title: "Bifocal",
     description: "Lentes de laboratorio con dos focos para visión lejana y cercana.",
-    headers: ["Descripción", "Rango Esférico", "Rango Cilíndrico", "Rango Adición", "Precio"],
+    headers: ["Descripción", "Precio", "Rango Esférico", "Rango Cilíndrico", "Rango Adición"],
     items: [
       {
         name: "Orgánico Blue Light Cut",
@@ -162,7 +162,7 @@ const PRICING_DATA = {
   multifocal_digital: {
     title: "Multifocales Digitales",
     description: "Lentes progresivas de tallado digital con tecnologías adaptadas a diferentes exigencias.",
-    headers: ["Descripción", "Índice", "ONE (HD Clásico)", "NEW (HD Plus)", "FREE (HD Premium)", "PRO (HD Élite)"],
+    headers: ["Descripción", "ONE (HD Clásico)", "NEW (HD Plus)", "FREE (HD Premium)", "PRO (HD Élite)"],
     subheaders: {
       "ONE (HD Clásico)": "El punto de entrada a la tecnología digital.",
       "NEW (HD Plus)": "Mejora en la amplitud del corredor visual.",
@@ -247,7 +247,7 @@ const PRICING_DATA = {
   ocupacional_digital: {
     title: "Ocupacional Digital",
     description: "Lentes diseñadas para trabajo en oficina y pantallas a distancias intermedias y cercanas.",
-    headers: ["Descripción", "Índice", "Precio"],
+    headers: ["Descripción", "Precio"],
     items: [
       {
         name: "Orgánico Blue Light",

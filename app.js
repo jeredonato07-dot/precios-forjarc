@@ -269,34 +269,26 @@ function renderAllTables() {
       html += `<tr${rowClass}>`;
 
       if (key === 'stock') {
-        let nameHtml = `
-          <strong class="desktop-only">${item.name}</strong>
-          <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
-        `;
+        let nameHtml = `<span class="badge-index" style="margin-right: 0.5rem; vertical-align: middle;">${item.index}</span><strong>${item.name}</strong>`;
         if (item.featured) {
           nameHtml += ` <span class="badge-promo" style="display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: var(--gradient-primary); color: white; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle;">Destacado 🔥</span>`;
         }
         html += `
-          <td><span class="badge-index">${item.index}</span></td>
           <td>
             <span class="badge-brand">${item.brand}</span>
             ${nameHtml}
           </td>
           <td>
-            <span class="badge-range desktop-only">${item.type}</span>
-            <span class="badge-range mobile-only">${abbreviateTypeForMobile(item.type)}</span>
+            <span class="badge-range">${item.type}</span>
           </td>
+          <td class="price-value">${item.price}</td>
           <td>
             <span class="params-text desktop-only">${item.params}</span>
             <span class="params-text mobile-only">${formatParamsForMobile(item.params)}</span>
           </td>
-          <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'monofocal_lab') {
-        let nameHtml = `
-          <strong class="desktop-only">${item.name}</strong>
-          <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
-        `;
+        let nameHtml = `<strong>${item.name}</strong>`;
         if (item.colors) {
           nameHtml += '<div class="color-options" style="margin-top: 0.35rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">';
           item.colors.forEach(c => {
@@ -333,29 +325,22 @@ function renderAllTables() {
         
         html += `
           <td>${nameHtml}</td>
-          <td><span class="params-text">${item.sphRange}</span></td>
-          <td><span class="params-text">${item.cylRange}</span></td>
           <td class="price-value">${item.traditionalPrice}</td>
           <td class="price-value">${item.digitalPrice}</td>
+          <td><span class="params-text">${item.sphRange}</span></td>
+          <td><span class="params-text">${item.cylRange}</span></td>
         `;
       } else if (key === 'bifocal') {
         html += `
-          <td>
-            <strong class="desktop-only">${item.name}</strong>
-            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
-          </td>
+          <td><strong>${item.name}</strong></td>
+          <td class="price-value">${item.price}</td>
           <td><span class="params-text">${item.sphRange}</span></td>
           <td><span class="params-text">${item.cylRange}</span></td>
           <td><span class="params-text">${item.addRange}</span></td>
-          <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'multifocal_digital') {
         html += `
-          <td>
-            <strong class="desktop-only">${item.name}</strong>
-            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
-          </td>
-          <td><span class="badge-index">${item.index}</span></td>
+          <td><strong>${item.name}</strong> <span class="badge-index" style="margin-left: 0.25rem;">${item.index}</span></td>
           <td class="price-value">${item.one}</td>
           <td class="price-value">${item.new}</td>
           <td class="price-value">${item.free}</td>
@@ -363,27 +348,17 @@ function renderAllTables() {
         `;
       } else if (key === 'ocupacional_digital') {
         html += `
-          <td>
-            <strong class="desktop-only">${item.name}</strong>
-            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
-          </td>
-          <td><span class="badge-index">${item.index}</span></td>
+          <td><strong>${item.name}</strong> <span class="badge-index" style="margin-left: 0.25rem;">${item.index}</span></td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'tratamientos') {
         html += `
-          <td>
-            <strong class="desktop-only">${item.name}</strong>
-            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
-          </td>
+          <td><strong>${item.name}</strong></td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'calibrados_trabajos') {
         html += `
-          <td>
-            <strong class="desktop-only">${item.name}</strong>
-            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
-          </td>
+          <td><strong>${item.name}</strong></td>
           <td class="price-value">${item.fullRim}</td>
           <td class="price-value">${item.grooved}</td>
           <td class="price-value">${item.drilled}</td>
