@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForjarC - Lista de Precios Interactiva</title>
+  <meta name="description" content="Lista de precios de referencia para cristales, lentes de stock, laboratorio, multifocales y tratamientos de ForjarC.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Decorative animated background blobs -->
+  <div class="bg-blobs no-print">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <div class="container">
+    <!-- Header Section -->
+    <header>
+      <div class="brand-container">
+        <div class="brand-icon">
+          <!-- Glass icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.43 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>ForjarC</h1>
+          <p>Lista de Precios de Referencia</p>
+        </div>
+      </div>
+      
+      <div class="header-actions no-print">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="btn theme-toggle" title="Cambiar tema">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 20px; height: 20px; display: none;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 20px; height: 20px;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+          </svg>
+        </button>
+
+        <!-- Print/PDF Button -->
+        <button id="print-btn" class="btn btn-primary" title="Imprimir o guardar como PDF">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 18px; height: 18px;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0a2.25 2.25 0 01-2.25 2.25H8.59A2.25 2.25 0 016.34 18m11.318-4.171A3 3 0 0015 11.25H9a3 3 0 00-2.658 1.579m10.941.096l.477 3.337m-11.895-3.337l-.477 3.337M9 4.5h6a1.5 1.5 0 011.5 1.5V9H7.5V6a1.5 1.5 0 011.5-1.5z" />
+          </svg>
+          <span>Imprimir / PDF</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Controls Panel (Search & Category filter) -->
+    <div class="controls-panel no-print">
+      <!-- Search Input -->
+      <div class="search-wrapper">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.602 10.602z" />
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Buscar cristales, tratamientos, índices (ej: Blue Light, 1.60)..." autocomplete="off">
+        <button id="clear-search" class="clear-search" style="display: none;" title="Limpiar búsqueda">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width: 16px; height: 16px;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="tabs-container" id="tabs-container">
+        <!-- Will be populated dynamically by app.js or can be hardcoded for instant rendering -->
+        <button class="tab-btn active" data-category="stock">Lentes de Stock</button>
+        <button class="tab-btn" data-category="monofocal_lab">Monofocal Laboratorio</button>
+        <button class="tab-btn" data-category="bifocal">Bifocal</button>
+        <button class="tab-btn" data-category="multifocal_digital">Multifocales Digitales</button>
+        <button class="tab-btn" data-category="ocupacional_digital">Ocupacional Digital</button>
+        <button class="tab-btn" data-category="tratamientos">Tratamientos</button>
+        <button class="tab-btn" data-category="calibrados_trabajos">Calibrados y Trabajos</button>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="content-wrapper">
+      
+      <!-- Tables will be dynamically rendered here for screen, but all are shown during printing -->
+      <div id="pricing-tables-container">
+        <!-- Tables are injected by app.js -->
+        <div class="loading-state" style="text-align: center; padding: 3rem 0; color: var(--text-muted);">
+          Cargando lista de precios...
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.008 1.24l.885 1.77a2.25 2.25 0 002.007 1.24h1.98a2.25 2.25 0 002.007-1.24l.885-1.77a2.25 2.25 0 012.007-1.24h3.86m-18 0h18a2.25 2.25 0 002.25-2.25V5.25A2.25 2.25 0 0019.5 3h-15A2.25 2.25 0 003 5.25v6a2.25 2.25 0 002.25 2.25z" />
+        </svg>
+        <h3>No se encontraron resultados</h3>
+        <p>Intenta buscando con palabras clave diferentes o verifica la ortografía.</p>
+      </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>ForjarC &copy; 2026 &bull; Lista de precios de referencia para ópticas y profesionales del sector.</p>
+    </footer>
+  </div>
+
+  <!-- Load Data and Application Logic -->
+  <script src="data.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
