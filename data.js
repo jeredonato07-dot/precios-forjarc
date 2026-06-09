@@ -26,7 +26,8 @@ const PRICING_DATA = {
         name: "Organico Super Blue Asférico C/AR Super Hidrofóbico",
         type: "Stock",
         params: "Esf +/- 6.00 // Esf/Cil +4.00 / +2.00 // -6.00 / +2.00",
-        price: "$20,899"
+        price: "$20,899",
+        featured: true
       },
       {
         index: "1.60",
@@ -34,7 +35,8 @@ const PRICING_DATA = {
         name: "Organico Super Blue Asférico C/AR Super Hidrofóbico",
         type: "Rango Extendido",
         params: "Esf/Cil -10.00 / -2.00 // +6.00 / -4.00 // -7.00 / -4.00",
-        price: "$23,313"
+        price: "$23,313",
+        featured: true
       },
       {
         index: "1.74",
@@ -42,7 +44,8 @@ const PRICING_DATA = {
         name: "Organico Super Blue Asférico C/AR Super Hidrofóbico",
         type: "Rango Extendido Plus",
         params: "Esf/Cil -10.25 / -2.00 // -12.00 / -2.00 // -12.25 / -15.00",
-        price: "$218,813"
+        price: "$218,813",
+        featured: true
       },
       {
         index: "1.56",

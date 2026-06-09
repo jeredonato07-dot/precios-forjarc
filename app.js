@@ -226,14 +226,19 @@ function renderAllTables() {
 
     // 2. Add item rows
     cat.items.forEach(item => {
-      html += '<tr>';
+      const rowClass = item.featured ? ' class="row-featured"' : '';
+      html += `<tr${rowClass}>`;
 
       if (key === 'stock') {
+        let nameHtml = `<strong>${item.name}</strong>`;
+        if (item.featured) {
+          nameHtml += ` <span class="badge-promo" style="display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: var(--gradient-primary); color: white; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle;">Destacado 🔥</span>`;
+        }
         html += `
           <td><span class="badge-index">${item.index}</span></td>
           <td>
             <span class="badge-brand">${item.brand}</span>
-            <strong>${item.name}</strong>
+            ${nameHtml}
           </td>
           <td><span class="badge-range">${item.type}</span></td>
           <td><span class="params-text">${item.params}</span></td>

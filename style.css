@@ -461,6 +461,38 @@ tr:hover td {
   background: rgba(255, 255, 255, 0.01);
 }
 
+/* Featured Row Highlight */
+tr.row-featured {
+  background: rgba(14, 165, 233, 0.04) !important;
+  transition: all var(--transition-fast);
+}
+
+tr.row-featured td {
+  border-bottom: 1px dashed rgba(14, 165, 233, 0.25) !important;
+}
+
+[data-theme="dark"] tr.row-featured {
+  background: rgba(14, 165, 233, 0.06) !important;
+}
+
+tr.row-featured:hover td {
+  background: rgba(14, 165, 233, 0.08) !important;
+}
+
+tr.row-featured td strong {
+  color: var(--primary) !important;
+}
+
+[data-theme="dark"] tr.row-featured td strong {
+  color: var(--accent) !important;
+}
+
+tr.row-featured .price-value {
+  color: var(--success) !important;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
 /* Custom Table Column Formatting */
 .price-value {
   font-family: var(--font-heading);
@@ -721,6 +753,25 @@ footer {
     font-size: 6.5pt !important;
     color: #555555 !important;
     margin-top: 1px !important;
+  }
+
+  /* Highlight featured row on print */
+  tr.row-featured {
+    background: #f0f7ff !important;
+  }
+  
+  tr.row-featured td {
+    border-top: 1px dashed #3b82f6 !important;
+    border-bottom: 1px dashed #3b82f6 !important;
+  }
+  
+  tr.row-featured td strong {
+    color: #1d4ed8 !important;
+  }
+  
+  tr.row-featured .price-value {
+    color: #15803d !important;
+    font-weight: bold !important;
   }
   
   .bg-blobs {
