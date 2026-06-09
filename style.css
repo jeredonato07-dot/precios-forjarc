@@ -898,4 +898,13 @@ tr.row-featured td strong.desktop-only {
   .table-responsive {
     border-radius: var(--radius-md);
   }
+
+  /* Force description column to occupy a generous width on mobile to avoid wrapping text into multiple lines */
+  #cat-stock td:first-child, #cat-stock th:first-child,
+  #cat-monofocal_lab td:first-child, #cat-monofocal_lab th:first-child,
+  #cat-bifocal td:first-child, #cat-bifocal th:first-child,
+  #cat-multifocal_digital td:first-child, #cat-multifocal_digital th:first-child,
+  #cat-calibrados_trabajos td:first-child, #cat-calibrados_trabajos th:first-child {
+    min-width: 250px !important;
+  }
 }

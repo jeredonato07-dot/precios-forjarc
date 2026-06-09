@@ -270,6 +270,10 @@ function renderAllTables() {
 
       if (key === 'stock') {
         let nameHtml = `<span class="badge-index" style="margin-right: 0.5rem; vertical-align: middle;">${item.index}</span><strong>${item.name}</strong>`;
+        
+        // Add range/type badge next to name
+        nameHtml += ` <span class="badge-range" style="font-size: 0.7rem; font-weight: 600; padding: 2px 6px; border-radius: 4px; background: var(--success-glow); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.15); margin-left: 0.5rem; vertical-align: middle; white-space: nowrap;">${item.type}</span>`;
+        
         if (item.featured) {
           nameHtml += ` <span class="badge-promo" style="display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: var(--gradient-primary); color: white; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle;">Destacado 🔥</span>`;
         }
@@ -277,9 +281,6 @@ function renderAllTables() {
           <td>
             <span class="badge-brand">${item.brand}</span>
             ${nameHtml}
-          </td>
-          <td>
-            <span class="badge-range">${item.type}</span>
           </td>
           <td class="price-value">${item.price}</td>
           <td>

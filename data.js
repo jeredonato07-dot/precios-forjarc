@@ -2,7 +2,7 @@ const PRICING_DATA = {
   stock: {
     title: "Lentes de Stock Rango Extendido",
     description: "Lentes monofocales listos para entrega inmediata o en rango extendido de stock.",
-    headers: ["Descripción", "Rango/Tipo", "Precio", "Parámetros de Graduación"],
+    headers: ["Descripción", "Precio", "Parámetros de Graduación"],
     items: [
       {
         index: "1.56",
