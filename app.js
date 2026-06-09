@@ -240,8 +240,43 @@ function renderAllTables() {
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'monofocal_lab') {
+        let nameHtml = `<strong>${item.name}</strong>`;
+        if (item.colors) {
+          nameHtml += '<div class="color-options" style="margin-top: 0.35rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">';
+          item.colors.forEach(c => {
+            let colorBg, colorText;
+            switch(c.toLowerCase()) {
+              case 'brown':
+                colorBg = 'rgba(139, 69, 19, 0.1)';
+                colorText = '#c66a38'; // Soft brown
+                break;
+              case 'green':
+                colorBg = 'rgba(16, 185, 129, 0.1)';
+                colorText = '#10b981'; // Emerald
+                break;
+              case 'blue':
+                colorBg = 'rgba(59, 130, 246, 0.1)';
+                colorText = '#3b82f6'; // Blue
+                break;
+              case 'pink':
+                colorBg = 'rgba(236, 72, 153, 0.1)';
+                colorText = '#ec4899'; // Pink
+                break;
+              case 'purple':
+                colorBg = 'rgba(139, 92, 246, 0.1)';
+                colorText = '#8b5cf6'; // Purple
+                break;
+              default:
+                colorBg = 'rgba(100, 116, 139, 0.1)';
+                colorText = 'var(--text-muted)';
+            }
+            nameHtml += `<span style="font-size: 0.725rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; background: ${colorBg}; color: ${colorText}; text-transform: uppercase;">${c}</span>`;
+          });
+          nameHtml += '</div>';
+        }
+        
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td>${nameHtml}</td>
           <td><span class="params-text">${item.sphRange}</span></td>
           <td><span class="params-text">${item.cylRange}</span></td>
           <td class="price-value">${item.traditionalPrice}</td>

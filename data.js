@@ -52,14 +52,7 @@ const PRICING_DATA = {
         params: "Esf +/- 4.00 // Esf/Cil +4.00 / -2.00 // -4.00 / +2.00",
         price: "$18,840"
       },
-      {
-        index: "1.56",
-        brand: "ORGANICO FOTOCROMATICO C/AR",
-        name: "Organico Fotocromático C/AR Gris Rango Extendido",
-        type: "Rango Extendido",
-        params: "Esf/Cil +4.00 / -4.00 // -4.00 / +4.00",
-        price: "$39,800"
-      },
+
       {
         index: "1.56",
         brand: "ORGANICO FOTOCROMATICO BLUE C/AR",
@@ -131,6 +124,14 @@ const PRICING_DATA = {
         cylRange: "+/- 6.00",
         traditionalPrice: "$96,437",
         digitalPrice: "$151,432"
+      },
+      {
+        name: "1.56 Orgánico Fotocromático Smart Color",
+        colors: ["Brown", "Green", "Blue", "Pink", "Purple"],
+        sphRange: "+5.00 a -8.00",
+        cylRange: "+/- 5.00",
+        traditionalPrice: "$124,000",
+        digitalPrice: "$158,000"
       }
     ]
   },
