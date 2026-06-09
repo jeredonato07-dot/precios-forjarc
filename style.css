@@ -787,38 +787,12 @@ footer {
   }
 }
 
-/* Desktop / Mobile utility helper classes */
-.mobile-only {
-  display: none !important;
-}
-
-.desktop-only {
-  display: inline-block !important;
-}
-
-tr.row-featured td strong.desktop-only {
-  display: inline-block !important;
-}
-
 /* Mobile responsive fixes */
 @media (max-width: 768px) {
-  .desktop-only {
-    display: none !important;
-  }
-  
-  .mobile-only {
-    display: inline-block !important;
-  }
-  
-  tr.row-featured td strong.mobile-only {
-    display: inline-block !important;
-  }
-
   header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    margin-bottom: 1.5rem;
   }
   
   .header-actions {
@@ -828,82 +802,24 @@ tr.row-featured td strong.desktop-only {
   
   .controls-panel {
     padding: 1rem;
-    margin-bottom: 1.5rem;
   }
   
-  /* Compact Table for Mobile */
   th, td {
-    padding: 6px 4px !important;
-    font-size: 0.76rem !important;
-  }
-
-  th {
-    font-size: 0.72rem !important;
-    padding: 8px 4px !important;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
   }
   
   .price-value {
-    font-size: 0.82rem !important;
+    font-size: 0.95rem;
   }
   
-  tr.row-featured .price-value {
-    font-size: 0.88rem !important;
-  }
-
-  .params-text {
-    font-size: 0.68rem !important;
-    line-height: 1.3 !important;
-    padding: 2px 4px !important;
-    white-space: nowrap !important; /* Keep technical specs in a clean single line for horizontal scrolling */
-  }
-
-  .badge-index {
-    padding: 1px 4px !important;
-    font-size: 0.68rem !important;
-  }
-
-  .badge-range {
-    padding: 1px 4px !important;
-    font-size: 0.62rem !important;
-  }
-
-  .badge-brand {
-    font-size: 0.65rem !important;
-    margin-bottom: 1px !important;
-  }
-  
-  .badge-promo {
-    margin-left: 0.25rem !important;
-    font-size: 0.55rem !important;
-    padding: 1px 3px !important;
-  }
-  
-  /* Set minimum widths for multi-column tables to scroll cleanly on mobile */
-  #cat-stock table,
-  #cat-monofocal_lab table,
-  #cat-bifocal table,
-  #cat-multifocal_digital table,
-  #cat-calibrados_trabajos table {
-    min-width: 620px !important;
-  }
-
-  /* 2-column tables fit 100% of mobile screens with no scroll needed */
-  #cat-ocupacional_digital table,
-  #cat-tratamientos table {
-    min-width: 100% !important;
+  /* Let certain columns be wider */
+  .tab-content table {
+    min-width: 600px; /* Force scrollable container to preserve columns */
   }
   
   /* Optimize table responsive scrolls */
   .table-responsive {
     border-radius: var(--radius-md);
-  }
-
-  /* Force description column to occupy a generous width on mobile to avoid wrapping text into multiple lines */
-  #cat-stock td:first-child, #cat-stock th:first-child,
-  #cat-monofocal_lab td:first-child, #cat-monofocal_lab th:first-child,
-  #cat-bifocal td:first-child, #cat-bifocal th:first-child,
-  #cat-multifocal_digital td:first-child, #cat-multifocal_digital th:first-child,
-  #cat-calibrados_trabajos td:first-child, #cat-calibrados_trabajos th:first-child {
-    min-width: 250px !important;
   }
 }
