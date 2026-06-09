@@ -169,6 +169,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Helper: Mobile Abbreviation Functions
+function abbreviateForMobile(text) {
+  if (!text) return '';
+  return text
+    .replace(/Orgánico/gi, 'Org.')
+    .replace(/Organico/gi, 'Org.')
+    .replace(/Antirreflex/gi, 'AR')
+    .replace(/Antireflejo/gi, 'AR')
+    .replace(/Asférico/gi, 'Asf.')
+    .replace(/Asferico/gi, 'Asf.')
+    .replace(/Fotocromático/gi, 'Fotocr.')
+    .replace(/Fotocromatico/gi, 'Fotocr.')
+    .replace(/Super/gi, 'S.')
+    .replace(/Hidrofóbico/gi, 'Hidrof.')
+    .replace(/Hidrofobico/gi, 'Hidrof.')
+    .replace(/con/gi, 'c/')
+    .replace(/BLUE LIGHT/gi, 'BL')
+    .replace(/BlueLight/gi, 'BL')
+    .replace(/Blue Light/gi, 'BL')
+    .replace(/BLOCK/gi, 'Blk')
+    .replace(/Grey/gi, 'Gris')
+    .replace(/Policarbonato/gi, 'Poli.')
+    .replace(/Blanco Alto Índice/gi, 'Blanco Ind.');
+}
+
+function abbreviateTypeForMobile(type) {
+  if (!type) return '';
+  return type
+    .replace(/Rango Extendido Plus/gi, 'Ext. +')
+    .replace(/Rango Extendido/gi, 'R. Ext.')
+    .replace(/Stock \(Rango Extendido\)/gi, 'R. Ext.');
+}
+
+function formatParamsForMobile(params) {
+  if (!params) return '';
+  // Split on double slashes and render with breaks
+  return params.split('//').map(p => p.trim()).join('<br>');
+}
+
 // Helper: Rendering Function
 function renderAllTables() {
   const container = document.getElementById('pricing-tables-container');
@@ -230,7 +269,10 @@ function renderAllTables() {
       html += `<tr${rowClass}>`;
 
       if (key === 'stock') {
-        let nameHtml = `<strong>${item.name}</strong>`;
+        let nameHtml = `
+          <strong class="desktop-only">${item.name}</strong>
+          <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
+        `;
         if (item.featured) {
           nameHtml += ` <span class="badge-promo" style="display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: var(--gradient-primary); color: white; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle;">Destacado 🔥</span>`;
         }
@@ -240,12 +282,21 @@ function renderAllTables() {
             <span class="badge-brand">${item.brand}</span>
             ${nameHtml}
           </td>
-          <td><span class="badge-range">${item.type}</span></td>
-          <td><span class="params-text">${item.params}</span></td>
+          <td>
+            <span class="badge-range desktop-only">${item.type}</span>
+            <span class="badge-range mobile-only">${abbreviateTypeForMobile(item.type)}</span>
+          </td>
+          <td>
+            <span class="params-text desktop-only">${item.params}</span>
+            <span class="params-text mobile-only">${formatParamsForMobile(item.params)}</span>
+          </td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'monofocal_lab') {
-        let nameHtml = `<strong>${item.name}</strong>`;
+        let nameHtml = `
+          <strong class="desktop-only">${item.name}</strong>
+          <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
+        `;
         if (item.colors) {
           nameHtml += '<div class="color-options" style="margin-top: 0.35rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">';
           item.colors.forEach(c => {
@@ -289,7 +340,10 @@ function renderAllTables() {
         `;
       } else if (key === 'bifocal') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td>
+            <strong class="desktop-only">${item.name}</strong>
+            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
+          </td>
           <td><span class="params-text">${item.sphRange}</span></td>
           <td><span class="params-text">${item.cylRange}</span></td>
           <td><span class="params-text">${item.addRange}</span></td>
@@ -297,7 +351,10 @@ function renderAllTables() {
         `;
       } else if (key === 'multifocal_digital') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td>
+            <strong class="desktop-only">${item.name}</strong>
+            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
+          </td>
           <td><span class="badge-index">${item.index}</span></td>
           <td class="price-value">${item.one}</td>
           <td class="price-value">${item.new}</td>
@@ -306,18 +363,27 @@ function renderAllTables() {
         `;
       } else if (key === 'ocupacional_digital') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td>
+            <strong class="desktop-only">${item.name}</strong>
+            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
+          </td>
           <td><span class="badge-index">${item.index}</span></td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'tratamientos') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td>
+            <strong class="desktop-only">${item.name}</strong>
+            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
+          </td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'calibrados_trabajos') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td>
+            <strong class="desktop-only">${item.name}</strong>
+            <strong class="mobile-only">${abbreviateForMobile(item.name)}</strong>
+          </td>
           <td class="price-value">${item.fullRim}</td>
           <td class="price-value">${item.grooved}</td>
           <td class="price-value">${item.drilled}</td>

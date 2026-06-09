@@ -787,12 +787,38 @@ footer {
   }
 }
 
+/* Desktop / Mobile utility helper classes */
+.mobile-only {
+  display: none !important;
+}
+
+.desktop-only {
+  display: inline-block !important;
+}
+
+tr.row-featured td strong.desktop-only {
+  display: inline-block !important;
+}
+
 /* Mobile responsive fixes */
 @media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+  
+  .mobile-only {
+    display: inline-block !important;
+  }
+  
+  tr.row-featured td strong.mobile-only {
+    display: inline-block !important;
+  }
+
   header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .header-actions {
@@ -802,20 +828,67 @@ footer {
   
   .controls-panel {
     padding: 1rem;
+    margin-bottom: 1.5rem;
   }
   
+  /* Compact Table for Mobile */
   th, td {
-    padding: 0.75rem 0.5rem;
-    font-size: 0.85rem;
+    padding: 6px 4px !important;
+    font-size: 0.76rem !important;
+  }
+
+  th {
+    font-size: 0.72rem !important;
+    padding: 8px 4px !important;
   }
   
   .price-value {
-    font-size: 0.95rem;
+    font-size: 0.82rem !important;
   }
   
-  /* Let certain columns be wider */
+  tr.row-featured .price-value {
+    font-size: 0.88rem !important;
+  }
+
+  .params-text {
+    font-size: 0.65rem !important;
+    line-height: 1.25 !important;
+    padding: 2px 4px !important;
+    white-space: normal !important;
+    display: inline-block !important;
+    max-width: 100px !important;
+    word-break: break-all !important;
+  }
+
+  .badge-index {
+    padding: 1px 4px !important;
+    font-size: 0.68rem !important;
+  }
+
+  .badge-range {
+    padding: 1px 4px !important;
+    font-size: 0.62rem !important;
+  }
+
+  .badge-brand {
+    font-size: 0.65rem !important;
+    margin-bottom: 1px !important;
+  }
+  
+  .badge-promo {
+    margin-left: 0.25rem !important;
+    font-size: 0.55rem !important;
+    padding: 1px 3px !important;
+  }
+  
+  /* Allow scrolling container fallback if necessary, but keep it tight */
   .tab-content table {
-    min-width: 600px; /* Force scrollable container to preserve columns */
+    min-width: 100%; /* Force table to fit screen width */
+  }
+
+  /* Specific fix for multifocal digital table with 6 columns to scroll nicely on small screens */
+  #cat-multifocal_digital table {
+    min-width: 450px !important;
   }
   
   /* Optimize table responsive scrolls */
