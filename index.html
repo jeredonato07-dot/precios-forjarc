@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ForjarC - Lista de Precios Interactiva</title>
   <meta name="description" content="Lista de precios de referencia para cristales, lentes de stock, laboratorio, multifocales y tratamientos de ForjarC.">
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <!-- Decorative animated background blobs -->
@@ -32,6 +32,12 @@
       </div>
       
       <div class="header-actions no-print">
+        <!-- Search Toggle for Mobile -->
+        <button id="search-toggle-btn" class="btn btn-search-toggle" title="Buscar">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width: 18px; height: 18px;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.602 10.602z" />
+          </svg>
+        </button>
         <!-- Theme Toggle -->
         <button id="theme-toggle" class="btn theme-toggle" title="Cambiar tema">
           <!-- Sun Icon (shown in dark mode) -->
@@ -57,7 +63,7 @@
     <!-- Controls Panel (Search & Category filter) -->
     <div class="controls-panel no-print">
       <!-- Search Input -->
-      <div class="search-wrapper">
+      <div id="search-wrapper" class="search-wrapper">
         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.602 10.602z" />
         </svg>
@@ -68,6 +74,17 @@
           </svg>
         </button>
       </div>
+
+      <!-- Mobile Category Dropdown Selector -->
+      <select id="mobile-category-select" class="mobile-category-select no-print">
+        <option value="stock">Lentes de Stock</option>
+        <option value="monofocal_lab">Monofocal Laboratorio</option>
+        <option value="bifocal">Bifocal</option>
+        <option value="multifocal_digital">Multifocales Digitales</option>
+        <option value="ocupacional_digital">Ocupacional Digital</option>
+        <option value="tratamientos">Tratamientos</option>
+        <option value="calibrados_trabajos">Calibrados y Trabajos</option>
+      </select>
 
       <!-- Navigation Tabs -->
       <div class="tabs-container" id="tabs-container">
@@ -111,7 +128,7 @@
   </div>
 
   <!-- Load Data and Application Logic -->
-  <script src="data.js?v=5"></script>
-  <script src="app.js?v=5" defer></script>
+  <script src="data.js?v=6"></script>
+  <script src="app.js?v=6" defer></script>
 </body>
 </html>

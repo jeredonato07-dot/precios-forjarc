@@ -220,9 +220,15 @@ function renderAllTables() {
 
     // 1. Add headers
     cat.headers.forEach(h => {
+      let headerClass = '';
+      if (h === 'Parámetros de Graduación') headerClass = ' class="col-params-stock"';
+      else if (h === 'Rango Esférico' || h === 'Rango Cilíndrico') {
+        headerClass = key === 'monofocal_lab' ? ' class="col-params-lab"' : ' class="col-params-bifocal"';
+      } else if (h === 'Rango Adición') headerClass = ' class="col-params-bifocal"';
+
       if (key === 'multifocal_digital' && cat.subheaders && cat.subheaders[h]) {
         html += `
-          <th>
+          <th${headerClass}>
             <div class="column-title-wrapper">
               <span>${h}</span>
               <span class="column-desc">${cat.subheaders[h]}</span>
@@ -230,7 +236,7 @@ function renderAllTables() {
           </th>
         `;
       } else {
-        html += `<th>${h}</th>`;
+        html += `<th${headerClass}>${h}</th>`;
       }
     });
 
@@ -242,7 +248,7 @@ function renderAllTables() {
 
     // 2. Add item rows
     let lastGroup = null;
-    cat.items.forEach(item => {
+    cat.items.forEach((item, index) => {
       const rowClass = item.featured ? ' class="row-featured"' : '';
       
       // Subgroup divider row
@@ -260,20 +266,47 @@ function renderAllTables() {
       html += `<tr${rowClass}>`;
 
       if (key === 'stock') {
-        let nameHtml = `<span class="badge-index-inline">${item.index}</span> <strong class="product-name">${renderNameWithHighlight(item.name)}</strong>`;
-        if (item.featured) {
-          nameHtml += ` <span class="badge-promo" style="display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: var(--gradient-primary); color: white; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle;">Destacado 🔥</span>`;
-        }
+        let nameHtml = `
+          <div class="product-name-container">
+            <span class="badge-index-inline">${item.index}</span>
+            <strong class="product-name">${renderNameWithHighlight(item.name)}</strong>
+            ${item.featured ? '<span class="badge-promo" style="display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: var(--gradient-primary); color: white; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle;">Destacado 🔥</span>' : ''}
+            <button type="button" class="mobile-info-trigger" onclick="toggleVanillaRow(this)" title="Ver parámetros">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="mobile-collapsed-details" style="display: none;">
+            <strong>Graduación:</strong> ${item.params}
+          </div>
+        `;
+        
         html += `
-          <td>
-            ${nameHtml}
-          </td>
+          <td>${nameHtml}</td>
           <td><span class="badge-range">${item.type}</span></td>
-          <td><span class="params-text">${item.params}</span></td>
+          <td class="col-params-stock"><span class="params-text">${item.params}</span></td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'monofocal_lab') {
-        let nameHtml = `<strong>${renderNameWithHighlight(item.name)}</strong>`;
+        let nameHtml = `
+          <div class="product-name-container">
+            <strong class="product-name">${renderNameWithHighlight(item.name)}</strong>
+            <button type="button" class="mobile-info-trigger" onclick="toggleVanillaRow(this)" title="Ver parámetros">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="mobile-collapsed-details" style="display: none;">
+            <div><strong>Rango Esférico:</strong> ${item.sphRange}</div>
+            <div><strong>Rango Cilíndrico:</strong> ${item.cylRange}</div>
+          </div>
+        `;
         if (item.colors) {
           nameHtml += '<div class="color-options" style="margin-top: 0.35rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">';
           item.colors.forEach(c => {
@@ -310,17 +343,35 @@ function renderAllTables() {
         
         html += `
           <td>${nameHtml}</td>
-          <td><span class="params-text">${item.sphRange}</span></td>
-          <td><span class="params-text">${item.cylRange}</span></td>
+          <td class="col-params-lab"><span class="params-text">${item.sphRange}</span></td>
+          <td class="col-params-lab"><span class="params-text">${item.cylRange}</span></td>
           <td class="price-value">${item.traditionalPrice}</td>
           <td class="price-value">${item.digitalPrice}</td>
         `;
       } else if (key === 'bifocal') {
+        let nameHtml = `
+          <div class="product-name-container">
+            <strong class="product-name">${renderNameWithHighlight(item.name)}</strong>
+            <button type="button" class="mobile-info-trigger" onclick="toggleVanillaRow(this)" title="Ver parámetros">
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 16v-4"></path>
+                <path d="M12 8h.01"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="mobile-collapsed-details" style="display: none;">
+            <div><strong>Rango Esférico:</strong> ${item.sphRange}</div>
+            <div><strong>Rango Cilíndrico:</strong> ${item.cylRange}</div>
+            <div><strong>Rango Adición:</strong> ${item.addRange}</div>
+          </div>
+        `;
+        
         html += `
-          <td><strong>${renderNameWithHighlight(item.name)}</strong></td>
-          <td><span class="params-text">${item.sphRange}</span></td>
-          <td><span class="params-text">${item.cylRange}</span></td>
-          <td><span class="params-text">${item.addRange}</span></td>
+          <td>${nameHtml}</td>
+          <td class="col-params-bifocal"><span class="params-text">${item.sphRange}</span></td>
+          <td class="col-params-bifocal"><span class="params-text">${item.cylRange}</span></td>
+          <td class="col-params-bifocal"><span class="params-text">${item.addRange}</span></td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'multifocal_digital') {
@@ -366,3 +417,56 @@ function renderAllTables() {
     container.appendChild(section);
   });
 }
+
+// Global toggle row details helper for mobile
+window.toggleVanillaRow = function(btn) {
+  btn.classList.toggle('active');
+  const td = btn.closest('td');
+  const details = td.querySelector('.mobile-collapsed-details');
+  if (details) {
+    if (details.style.display === 'none') {
+      details.style.display = 'block';
+    } else {
+      details.style.display = 'none';
+    }
+  }
+};
+
+// Initialize mobile event listeners when DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+  // Toggle mobile search bar
+  const searchToggleBtn = document.getElementById('search-toggle-btn');
+  const searchWrapper = document.getElementById('search-wrapper');
+  if (searchToggleBtn && searchWrapper) {
+    searchToggleBtn.addEventListener('click', () => {
+      searchToggleBtn.classList.toggle('active');
+      searchWrapper.classList.toggle('show-mobile');
+      if (searchWrapper.classList.contains('show-mobile')) {
+        const input = searchWrapper.querySelector('input');
+        if (input) input.focus();
+      }
+    });
+  }
+
+  // Mobile Category Selector Change Handler
+  const mobileCategorySelect = document.getElementById('mobile-category-select');
+  if (mobileCategorySelect) {
+    mobileCategorySelect.addEventListener('change', (e) => {
+      const category = e.target.value;
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => {
+        if (tab.getAttribute('data-category') === category) {
+          tab.click();
+        }
+      });
+    });
+
+    // Keep mobile selector in sync with desktop tab clicks
+    document.addEventListener('click', (e) => {
+      const tab = e.target.closest('.tab-btn');
+      if (tab) {
+        mobileCategorySelect.value = tab.getAttribute('data-category');
+      }
+    });
+  }
+});
