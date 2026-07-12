@@ -915,6 +915,19 @@ footer {
     page-break-before: auto !important;
     break-before: auto !important;
   }
+
+  /* Force parameters columns to show in print layout (even when printing from mobile) */
+  .col-params-stock,
+  .col-params-lab,
+  .col-params-bifocal {
+    display: table-cell !important;
+  }
+  
+  /* Hide mobile info triggers and collapsed details in print */
+  .mobile-info-trigger,
+  .mobile-collapsed-details {
+    display: none !important;
+  }
 }
 
 
