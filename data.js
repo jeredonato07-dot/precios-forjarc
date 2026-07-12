@@ -198,7 +198,7 @@ const PRICING_DATA = {
         "group": "Bifocal Digital Invisible"
       },
       {
-        "name": "Bif. Kriptock Invisible Organico Blue Light Fotocromático Gris c/ Antirreflex",
+        "name": "Bif. Kriptock Invisible Organico Blue Light Fotocromático Gris",
         "sphRange": "+5.50 a -4.00",
         "cylRange": "+/- 4.00",
         "addRange": "1.00 a 3.50",
