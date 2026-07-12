@@ -823,3 +823,96 @@ footer {
     border-radius: var(--radius-md);
   }
 }
+
+
+/* --- UPDATED STYLES (AR Highlights, Subgroups, & Inline Index Badges) --- */
+
+.badge-range {
+  background: var(--accent-glow) !important;
+  color: var(--accent) !important;
+  border: 1px solid rgba(14, 165, 233, 0.15) !important;
+}
+
+.badge-index-inline {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--primary-glow);
+  color: var(--primary);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.ar-highlight {
+  color: var(--success) !important;
+  font-weight: 700;
+  margin-left: 0.25rem;
+}
+
+.subgroup-header-row td {
+  background: rgba(255, 255, 255, 0.03) !important;
+  padding: 0.6rem 0.875rem !important;
+  border-bottom: 1px solid var(--card-border) !important;
+  text-align: left;
+}
+
+[data-theme="light"] .subgroup-header-row td {
+  background: rgba(0, 0, 0, 0.02) !important;
+}
+
+.subgroup-title {
+  font-size: 0.725rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  color: var(--accent) !important;
+  display: block;
+}
+
+@media print {
+  .badge-index-inline {
+    background: none !important;
+    color: #000000 !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 7.5pt !important;
+    font-weight: bold !important;
+  }
+  
+  .ar-highlight {
+    color: #15803d !important;
+    font-weight: bold !important;
+    margin-left: 0.25rem !important;
+  }
+  
+  .subgroup-header-row td {
+    background: #f8fafc !important;
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+    padding: 6px 8px !important;
+  }
+  
+  .subgroup-title {
+    color: #000000 !important;
+    font-size: 8pt !important;
+    font-weight: bold !important;
+  }
+
+  .tab-content {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    margin-bottom: 1.2rem !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  #cat-bifocal, #cat-ocupacional_digital {
+    page-break-before: auto !important;
+    break-before: auto !important;
+  }
+}
