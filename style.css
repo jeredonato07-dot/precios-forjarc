@@ -733,7 +733,7 @@ footer {
     color: #333333 !important;
   }
 
-  .badge-index, .badge-range {
+  .badge-index, .badge-index-inline, .badge-range {
     background: none !important;
     color: #000000 !important;
     border: none !important;

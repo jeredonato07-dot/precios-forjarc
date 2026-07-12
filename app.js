@@ -175,6 +175,23 @@ function renderAllTables() {
   if (!container) return;
   container.innerHTML = ''; // Clear loading spinner/text
 
+  // Helper to highlight AR suffixes
+  function renderNameWithHighlight(name) {
+    if (!name) return '';
+    const arPatterns = [
+      "c/ Antirreflex Super Hidrofóbico",
+      "c/ Antirreflex Block",
+      "c/ Antirreflex"
+    ];
+    for (const pattern of arPatterns) {
+      if (name.endsWith(pattern)) {
+        const baseName = name.substring(0, name.length - pattern.length);
+        return `${baseName}<span class="ar-highlight">${pattern}</span>`;
+      }
+    }
+    return name;
+  }
+
   Object.keys(PRICING_DATA).forEach(key => {
     const cat = PRICING_DATA[key];
     const section = document.createElement('section');
@@ -203,7 +220,6 @@ function renderAllTables() {
 
     // 1. Add headers
     cat.headers.forEach(h => {
-      // If we are rendering the multifocal headers, insert description subheadings
       if (key === 'multifocal_digital' && cat.subheaders && cat.subheaders[h]) {
         html += `
           <th>
@@ -225,19 +241,31 @@ function renderAllTables() {
     `;
 
     // 2. Add item rows
+    let lastGroup = null;
     cat.items.forEach(item => {
       const rowClass = item.featured ? ' class="row-featured"' : '';
+      
+      // Subgroup divider row
+      if (item.group && item.group !== lastGroup) {
+        lastGroup = item.group;
+        html += `
+          <tr class="subgroup-header-row">
+            <td colspan="${cat.headers.length}">
+              <span class="subgroup-title">${item.group}</span>
+            </td>
+          </tr>
+        `;
+      }
+
       html += `<tr${rowClass}>`;
 
       if (key === 'stock') {
-        let nameHtml = `<strong>${item.name}</strong>`;
+        let nameHtml = `<span class="badge-index-inline">${item.index}</span> <strong class="product-name">${renderNameWithHighlight(item.name)}</strong>`;
         if (item.featured) {
           nameHtml += ` <span class="badge-promo" style="display: inline-block; font-size: 0.65rem; font-weight: 800; padding: 2px 6px; border-radius: 4px; background: var(--gradient-primary); color: white; margin-left: 0.5rem; text-transform: uppercase; letter-spacing: 0.5px; vertical-align: middle;">Destacado 🔥</span>`;
         }
         html += `
-          <td><span class="badge-index">${item.index}</span></td>
           <td>
-            <span class="badge-brand">${item.brand}</span>
             ${nameHtml}
           </td>
           <td><span class="badge-range">${item.type}</span></td>
@@ -245,7 +273,7 @@ function renderAllTables() {
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'monofocal_lab') {
-        let nameHtml = `<strong>${item.name}</strong>`;
+        let nameHtml = `<strong>${renderNameWithHighlight(item.name)}</strong>`;
         if (item.colors) {
           nameHtml += '<div class="color-options" style="margin-top: 0.35rem; display: flex; gap: 0.35rem; flex-wrap: wrap;">';
           item.colors.forEach(c => {
@@ -253,23 +281,23 @@ function renderAllTables() {
             switch(c.toLowerCase()) {
               case 'brown':
                 colorBg = 'rgba(139, 69, 19, 0.1)';
-                colorText = '#c66a38'; // Soft brown
+                colorText = '#c66a38';
                 break;
               case 'green':
                 colorBg = 'rgba(16, 185, 129, 0.1)';
-                colorText = '#10b981'; // Emerald
+                colorText = '#10b981';
                 break;
               case 'blue':
                 colorBg = 'rgba(59, 130, 246, 0.1)';
-                colorText = '#3b82f6'; // Blue
+                colorText = '#3b82f6';
                 break;
               case 'pink':
                 colorBg = 'rgba(236, 72, 153, 0.1)';
-                colorText = '#ec4899'; // Pink
+                colorText = '#ec4899';
                 break;
               case 'purple':
                 colorBg = 'rgba(139, 92, 246, 0.1)';
-                colorText = '#8b5cf6'; // Purple
+                colorText = '#8b5cf6';
                 break;
               default:
                 colorBg = 'rgba(100, 116, 139, 0.1)';
@@ -289,7 +317,7 @@ function renderAllTables() {
         `;
       } else if (key === 'bifocal') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td><strong>${renderNameWithHighlight(item.name)}</strong></td>
           <td><span class="params-text">${item.sphRange}</span></td>
           <td><span class="params-text">${item.cylRange}</span></td>
           <td><span class="params-text">${item.addRange}</span></td>
@@ -297,7 +325,7 @@ function renderAllTables() {
         `;
       } else if (key === 'multifocal_digital') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td><strong>${renderNameWithHighlight(item.name)}</strong></td>
           <td><span class="badge-index">${item.index}</span></td>
           <td class="price-value">${item.one}</td>
           <td class="price-value">${item.new}</td>
@@ -306,18 +334,18 @@ function renderAllTables() {
         `;
       } else if (key === 'ocupacional_digital') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td><strong>${renderNameWithHighlight(item.name)}</strong></td>
           <td><span class="badge-index">${item.index}</span></td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'tratamientos') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td><strong>${renderNameWithHighlight(item.name)}</strong></td>
           <td class="price-value">${item.price}</td>
         `;
       } else if (key === 'calibrados_trabajos') {
         html += `
-          <td><strong>${item.name}</strong></td>
+          <td><strong>${renderNameWithHighlight(item.name)}</strong></td>
           <td class="price-value">${item.fullRim}</td>
           <td class="price-value">${item.grooved}</td>
           <td class="price-value">${item.drilled}</td>
