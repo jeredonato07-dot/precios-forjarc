@@ -15,7 +15,7 @@ const PRICING_DATA = {
         "name": "Organico Blue Light Cut c/ Antirreflex",
         "type": "Stock",
         "params": "Esf +/- 6.00 // Esf/Cil +6.00 / -2.00 // -6.00 / +2.00",
-        "price": "$7,249"
+        "price": "$7,756"
       },
       {
         "index": "1.56",
@@ -23,7 +23,7 @@ const PRICING_DATA = {
         "name": "Organico Blue Light Cut c/ Antirreflex",
         "type": "Rango Extendido",
         "params": "Esf/Cil +4.00 / -4.00 // -4.00 / -4.00",
-        "price": "$15,783"
+        "price": "$16,888"
       },
       {
         "index": "1.60",
@@ -31,7 +31,7 @@ const PRICING_DATA = {
         "name": "Organico Super Blue Asférico c/ Antirreflex Super Hidrofóbico",
         "type": "Stock",
         "params": "Esf +/- 6.00 // Esf/Cil +4.00 / +2.00 // -6.00 / +2.00",
-        "price": "$22,362",
+        "price": "$23,927",
         "featured": true
       },
       {
@@ -40,7 +40,7 @@ const PRICING_DATA = {
         "name": "Organico Super Blue Asférico c/ Antirreflex Super Hidrofóbico",
         "type": "Rango Extendido",
         "params": "Esf/Cil -10.00 / -2.00 // +6.00 / -4.00 // -7.00 / -4.00",
-        "price": "$24,945",
+        "price": "$26,691",
         "featured": true
       },
       {
@@ -49,7 +49,7 @@ const PRICING_DATA = {
         "name": "Organico Super Blue Asférico c/ Antirreflex Super Hidrofóbico",
         "type": "Rango Extendido Plus",
         "params": "Esf/Cil -10.25 / -2.00 // -12.00 / -2.00 // -12.25 / -15.00",
-        "price": "$234,130",
+        "price": "$250,519",
         "featured": true
       },
       {
@@ -58,7 +58,7 @@ const PRICING_DATA = {
         "name": "Organico Fotocromático Gris c/ Antirreflex",
         "type": "Stock",
         "params": "Esf +/- 4.00 // Esf/Cil +4.00 / -2.00 // -4.00 / +2.00",
-        "price": "$20,159"
+        "price": "$21,570"
       },
       {
         "index": "1.56",
@@ -66,7 +66,7 @@ const PRICING_DATA = {
         "name": "Blue Fotocromático Gris c/ Antirreflex",
         "type": "Stock",
         "params": "Esf +/- 4.00 // Esf/Cil +4.00 / -2.00 // -4.00 / +2.00",
-        "price": "$44,726"
+        "price": "$47,857"
       },
       {
         "index": "1.60",
@@ -74,7 +74,7 @@ const PRICING_DATA = {
         "name": "Super Blue Fotocromático Gris c/ Antirreflex",
         "type": "Stock",
         "params": "Esf +/- 4.00 // Esf/Cil +4.00 / -2.00 // -4.00 / +2.00",
-        "price": "$71,155"
+        "price": "$76,136"
       }
     ]
   },
@@ -93,50 +93,50 @@ const PRICING_DATA = {
         "name": "1.56 Orgánico Blue Light",
         "sphRange": "+8.00 a -12.00",
         "cylRange": "+/- 6.00",
-        "traditionalPrice": "$40,998",
-        "digitalPrice": "$64,215"
+        "traditionalPrice": "$43,868",
+        "digitalPrice": "$68,710"
       },
       {
         "name": "1.56 Orgánico Blue Light c/ Antirreflex Block",
         "sphRange": "+8.00 a -12.00",
         "cylRange": "+/- 6.00",
-        "traditionalPrice": "$64,478",
-        "digitalPrice": "$96,402"
+        "traditionalPrice": "$68,991",
+        "digitalPrice": "$103,150"
       },
       {
         "name": "1.60 Orgánico Super Blue Light",
         "sphRange": "+8.00 a -12.00",
         "cylRange": "+/- 6.00",
-        "traditionalPrice": "$73,595",
-        "digitalPrice": "$110,031"
+        "traditionalPrice": "$78,747",
+        "digitalPrice": "$117,733"
       },
       {
         "name": "1.60 Orgánico Super Blue Light c/ Antirreflex Block",
         "sphRange": "+8.00 a -12.00",
         "cylRange": "+/- 6.00",
-        "traditionalPrice": "$96,738",
-        "digitalPrice": "$144,633"
+        "traditionalPrice": "$103,510",
+        "digitalPrice": "$154,757"
       },
       {
         "name": "1.56 Orgánico Fotocromático Gris",
         "sphRange": "8.00 a -12.00",
         "cylRange": "+/- 6.00",
-        "traditionalPrice": "$60,522",
-        "digitalPrice": "$90,487"
+        "traditionalPrice": "$64,759",
+        "digitalPrice": "$96,821"
       },
       {
         "name": "1.56 Orgánico Fotocromático BLUE",
         "sphRange": "8.00 a -12.00",
         "cylRange": "+/- 6.00",
-        "traditionalPrice": "$84,589",
-        "digitalPrice": "$132,491"
+        "traditionalPrice": "$90,510",
+        "digitalPrice": "$141,765"
       },
       {
         "name": "1.56 Orgánico Fotocromático BLUE c/ Antirreflex Block",
         "sphRange": "8.00 a -12.00",
         "cylRange": "+/- 6.00",
-        "traditionalPrice": "$103,188",
-        "digitalPrice": "$162,032"
+        "traditionalPrice": "$110,411",
+        "digitalPrice": "$173,374"
       },
       {
         "name": "1.56 Orgánico Fotocromático Smart Color",
@@ -149,8 +149,8 @@ const PRICING_DATA = {
         ],
         "sphRange": "+5.00 a -8.00",
         "cylRange": "+/- 5.00",
-        "traditionalPrice": "$132,680",
-        "digitalPrice": "$169,060"
+        "traditionalPrice": "$141,968",
+        "digitalPrice": "$180,894"
       }
     ]
   },
@@ -170,7 +170,7 @@ const PRICING_DATA = {
         "sphRange": "+5.50 a -4.00",
         "cylRange": "+/- 4.00",
         "addRange": "1.00 a 3.50",
-        "price": "$46,010",
+        "price": "$49,231",
         "group": "Bifocales Flap Top"
       },
       {
@@ -178,7 +178,7 @@ const PRICING_DATA = {
         "sphRange": "+5.50 a -4.00",
         "cylRange": "+/- 4.00",
         "addRange": "1.00 a 3.50",
-        "price": "$64,756",
+        "price": "$69,289",
         "group": "Bifocales Flap Top"
       },
       {
@@ -186,7 +186,7 @@ const PRICING_DATA = {
         "sphRange": "+5.50 a -4.00",
         "cylRange": "+/- 4.00",
         "addRange": "1.00 a 3.50",
-        "price": "$69,800",
+        "price": "$74,686",
         "group": "Bifocal Digital Invisible"
       },
       {
@@ -194,7 +194,7 @@ const PRICING_DATA = {
         "sphRange": "+5.50 a -4.00",
         "cylRange": "+/- 4.00",
         "addRange": "1.00 a 3.50",
-        "price": "$89,900",
+        "price": "$96,193",
         "group": "Bifocal Digital Invisible"
       },
       {
@@ -202,7 +202,7 @@ const PRICING_DATA = {
         "sphRange": "+5.50 a -4.00",
         "cylRange": "+/- 4.00",
         "addRange": "1.00 a 3.50",
-        "price": "$93,800",
+        "price": "$100,366",
         "group": "Bifocal Digital Invisible"
       }
     ]
@@ -228,74 +228,74 @@ const PRICING_DATA = {
       {
         "name": "Orgánico BLUE LIGHT",
         "index": "1.56",
-        "one": "$76,128",
-        "new": "$118,791",
-        "free": "$166,308",
-        "pro": "$183,382"
+        "one": "$81,457",
+        "new": "$127,106",
+        "free": "$177,950",
+        "pro": "$196,219"
       },
       {
         "name": "Orgánico BLUE LIGHT c/ Antirreflex Block",
         "index": "1.56",
-        "one": "$97,991",
-        "new": "$140,012",
-        "free": "$187,528",
-        "pro": "$204,602"
+        "one": "$104,850",
+        "new": "$149,813",
+        "free": "$200,655",
+        "pro": "$218,924"
       },
       {
         "name": "Org Fotocromático Grey",
         "index": "1.56",
-        "one": "$90,911",
-        "new": "$140,668",
-        "free": "$196,934",
-        "pro": "$217,152"
+        "one": "$97,275",
+        "new": "$150,515",
+        "free": "$210,719",
+        "pro": "$232,353"
       },
       {
         "name": "Org Fotocromático Grey c/ Antirreflex Block",
         "index": "1.56",
-        "one": "$112,132",
-        "new": "$161,888",
-        "free": "$218,154",
-        "pro": "$238,372"
+        "one": "$119,981",
+        "new": "$173,220",
+        "free": "$233,425",
+        "pro": "$255,058"
       },
       {
         "name": "Org Fotocromático BLUELIGHT Grey",
         "index": "1.56",
-        "one": "$111,054",
-        "new": "$171,827",
-        "free": "$223,367",
-        "pro": "$246,316"
+        "one": "$118,828",
+        "new": "$183,855",
+        "free": "$239,003",
+        "pro": "$263,558"
       },
       {
         "name": "Org Fotocromático BLUELIGHT",
         "index": "1.56",
-        "one": "$132,274",
-        "new": "$193,047",
-        "free": "$244,587",
-        "pro": "$267,750"
+        "one": "$141,533",
+        "new": "$206,560",
+        "free": "$261,708",
+        "pro": "$286,493"
       },
       {
         "name": "Policarbonato BLUE LIGHT",
         "index": "1.59",
-        "one": "$101,169",
-        "new": "$156,537",
-        "free": "$219,152",
-        "pro": "$241,653"
+        "one": "$108,251",
+        "new": "$167,495",
+        "free": "$234,493",
+        "pro": "$258,569"
       },
       {
         "name": "Orgánico Super BlueLight",
         "index": "1.60",
-        "one": "$95,306",
-        "new": "$120,787",
-        "free": "$169,102",
-        "pro": "$186,467"
+        "one": "$101,977",
+        "new": "$129,242",
+        "free": "$180,939",
+        "pro": "$199,520"
       },
       {
         "name": "Orgánico Super BlueLight c/ Antirreflex Block",
         "index": "1.60",
-        "one": "$115,563",
-        "new": "$141,044",
-        "free": "$189,359",
-        "pro": "$206,724"
+        "one": "$123,652",
+        "new": "$150,917",
+        "free": "$202,614",
+        "pro": "$221,195"
       }
     ]
   },
@@ -311,22 +311,22 @@ const PRICING_DATA = {
       {
         "name": "Orgánico Blue Light",
         "index": "1.56",
-        "price": "$64,321"
+        "price": "$68,823"
       },
       {
         "name": "Orgánico Blue Light c/ Antirreflex Block",
         "index": "1.56",
-        "price": "$85,541"
+        "price": "$91,529"
       },
       {
         "name": "Orgánico Blanco Alto Índice",
         "index": "1.60",
-        "price": "$75,089"
+        "price": "$80,345"
       },
       {
         "name": "Orgánico Super Blue Light c/ Antirreflex Block",
         "index": "1.60",
-        "price": "$91,765"
+        "price": "$98,189"
       }
     ]
   },
@@ -340,19 +340,19 @@ const PRICING_DATA = {
     "items": [
       {
         "name": "Antireflejo SMART Ultra Layer",
-        "price": "$58,690"
+        "price": "$62,798"
       },
       {
         "name": "Antireflejo SMART Element",
-        "price": "$42,440"
+        "price": "$45,411"
       },
       {
         "name": "Teñido Compacto",
-        "price": "$8,984"
+        "price": "$9,613"
       },
       {
         "name": "Teñido Degradé",
-        "price": "$10,170"
+        "price": "$10,882"
       }
     ]
   },
@@ -368,19 +368,19 @@ const PRICING_DATA = {
     "items": [
       {
         "name": "ORGANICO STOCK",
-        "fullRim": "$2,857",
-        "grooved": "$4,473",
-        "drilled": "$9,608"
+        "fullRim": "$3,057",
+        "grooved": "$4,786",
+        "drilled": "$10,281"
       },
       {
         "name": "ORGANICO LABORATORIO",
-        "fullRim": "$4,788",
-        "grooved": "$6,226",
-        "drilled": "$14,935"
+        "fullRim": "$5,123",
+        "grooved": "$6,662",
+        "drilled": "$15,980"
       },
       {
         "name": "PASE DE CRISTALES (Precio Único)",
-        "fullRim": "$6,863",
+        "fullRim": "$7,343",
         "grooved": "-",
         "drilled": "-"
       }
