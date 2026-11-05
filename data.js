@@ -15,7 +15,7 @@ const PRICING_DATA = {
         "name": "Organico Blue Light Cut c/ Antirreflex",
         "type": "Stock",
         "params": "Esf +/- 6.00 // Esf/Cil +6.00 / -2.00 // -6.00 / +2.00",
-        "price": "$7,834"
+        "price": "$7,760"
       },
       {
         "index": "1.56",
