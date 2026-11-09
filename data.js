@@ -228,10 +228,10 @@ const PRICING_DATA = {
       {
         "name": "Orgánico BLUE LIGHT",
         "index": "1.56",
-        "one": "$82,272",
-        "new": "$128,377",
-        "free": "$179,730",
-        "pro": "$198,181"
+        "one": "$86,386",
+        "new": "$134,796",
+        "free": "$188,717",
+        "pro": "$208,090"
       },
       {
         "name": "Orgánico BLUE LIGHT c/ Antirreflex Block",
@@ -260,10 +260,10 @@ const PRICING_DATA = {
       {
         "name": "Org Fotocromático BLUELIGHT Grey",
         "index": "1.56",
-        "one": "$120,016",
-        "new": "$185,694",
-        "free": "$241,393",
-        "pro": "$266,194"
+        "one": "$124,817",
+        "new": "$193,122",
+        "free": "$251,049",
+        "pro": "$276,842"
       },
       {
         "name": "Org Fotocromático BLUELIGHT",
